@@ -1,0 +1,135 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #343541;
+  color: #ececf1;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Левая панель (Сайдбар) */
+.sidebar {
+  width: 260px;
+  background-color: #202123;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #444;
+}
+
+.sidebar h2 { font-size: 18px; margin-bottom: 20px; color: #fff; }
+
+.stats-box {
+  background: #2a2b32;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #acacbe;
+  margin-bottom: 20px;
+}
+
+.logs-list {
+  overflow-y: auto;
+  flex: 1;
+  list-style: none;
+  padding: 0;
+}
+
+.logs-list li {
+  font-size: 12px;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+  color: #acacbe;
+}
+
+/* Основной чат */
+.main-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 120px;
+  scroll-behavior: smooth;
+}
+
+.message {
+  display: flex;
+  padding: 24px;
+  gap: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  line-height: 1.6;
+}
+
+.message.user { background-color: #343541; }
+.message.assistant { background-color: #444654; }
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  flex-shrink: 0;
+}
+
+.user .avatar { background: #5436DA; }
+.assistant .avatar { background: #19C37D; }
+
+.bubble { flex: 1; white-space: pre-wrap; }
+
+/* Поле ввода */
+.input-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-image: linear-gradient(180deg, rgba(53,53,65,0), #343541 50%);
+}
+
+.input-container {
+  max-width: 768px;
+  margin: 0 auto;
+  position: relative;
+}
+
+textarea {
+  width: 100%;
+  background-color: #40414f;
+  border: 1px solid rgba(32,33,35,0.5);
+  border-radius: 12px;
+  color: white;
+  padding: 12px 45px 12px 15px;
+  resize: none;
+  font-family: inherit;
+  font-size: 16px;
+  height: 50px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+textarea:focus { outline: none; border-color: #19C37D; }
+
+.send-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 12px;
+  background: transparent;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 18px;
+}
+.send-btn:hover { color: #19C37D; }
+.send-btn:disabled { color: #555; }
